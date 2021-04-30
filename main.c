@@ -3,26 +3,31 @@
 #include <time.h>
 
 int main() {
-    int tablica[50];
-    int rozmiarTablicy =
-            sizeof(tablica) / sizeof(tablica[0]);
+    int array[50], i, j, arraySize = sizeof(array) / sizeof(array[0]);
+    double arithmeticAvg;
+    double arraySum = 0;
 
-    double sredniaArytmetyczna = 0;
-    int i;
-    int number;
-    int j;
     srand(time(NULL));
-    printf("Wartosc tablicy:");
-    for (j = 0; j < rozmiarTablicy; j++) {
-        number = rand() % 50 + 0;
-        tablica[j] = number;
-        printf(" , %d ", tablica[j]);
-    }
-    printf("\n");
-    for (i = 1; i < rozmiarTablicy; i++) {
-        sredniaArytmetyczna = sredniaArytmetyczna + tablica[i];
 
+    printf("Array values: [");
+
+    for (j = 0; j < arraySize; j++) {
+        array[j] = rand() % 50;
+
+        printf("%d", array[j]);
+
+        if (j > 0) {
+            printf(", ");
+        }
     }
 
-    printf("srednia arytmetyczna wynosi %f \n", sredniaArytmetyczna / rozmiarTablicy);
+    printf("]\n");
+
+    for (i = 1; i < arraySize; i++) {
+        arraySum = arraySum + array[i];
+    }
+
+    arithmeticAvg = arraySum / arraySize;
+
+    printf("Arithmetic average: %f \n", arithmeticAvg);
 }
